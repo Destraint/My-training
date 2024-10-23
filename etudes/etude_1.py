@@ -1,6 +1,11 @@
-word = input("Напиши слово или предложение: ")
-
-num = int(input("""-----------------------
+exit = 0
+Lword = 0
+while exit == 0:
+    if Lword == 0:
+        word = input("Напиши слово или предложение: ")
+    elif Lword == 1:
+        word = word
+    num = int(input("""-----------------------
 Выбери нужную операцию из списка:
 -----------------------
 Количество символов - 1
@@ -11,19 +16,36 @@ num = int(input("""-----------------------
 Количество определённого символа в строке - 6
 -----------------------
 Операция: """))
-print("-----------------------")
-match num:
-    case 1:
-        print(f"Количество символов: {len(word)}")
-    case 2:
-        print(f"Количество символов без пробелов: {len(word)-word.count(" ")}")
-    case 3:
-        print(word.upper())
-    case 4:
-        print(word.lower())
-    case 5:
-        print(word.capitalize())
-    case 6:
-        sym = input("Какой символ нужно подсчитать: ")
-        print("-----------------------")
-        print(word.count(sym))
+    print("-----------------------")
+    match num:
+        case 1:
+            print(f"Количество символов: {len(word)}")
+        case 2:
+            print(f"Количество символов без пробелов: {len(word)-word.count(" ")}")
+        case 3:
+            print(word.upper())
+        case 4:
+            print(word.lower())
+        case 5:
+            print(word.capitalize())
+        case 6:
+            sym = input("Какой символ нужно подсчитать: ")
+            print("-----------------------")
+            print(word.count(sym))
+    print("-----------------------")
+    vyb = int(input("""Хотите продолжить?
+-----------------------
+Продолжить эту строку - 1
+Новая строка - 2
+Выйти - 3
+-----------------------
+Операция: """))
+    print("-----------------------")
+    match vyb:
+        case 1:
+            Lword = 1
+        case 2:
+            Lword = 0
+        case 3:
+            exit = 1
+            print("Хорошего вам дня")
