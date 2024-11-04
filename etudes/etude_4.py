@@ -33,7 +33,14 @@ class Human:
             case 7:
                 BBO = BBO * 1.9
         print(f"Сколько нужно потреблять каллорий в день: {round(BBO, 2)}")
-person = Human(input("Ваше имя: "), float(input("Ваш вес: ")), float(input("Ваш рост: ")), int(input("Ваш возраст: ")), input("Ваш пол: "), int(input("""Выберите из списка уровень вашей нагрузки:
+        
+class Gym(Human):
+    def card(self, cost):
+        self.cost = cost
+        
+    def message(self):
+        print(f"Здравствуйте, {self.name}. Вам нужно заплатить за абонемент в спортзал {self.cost} рублей до конца недели.")
+person = Gym(input("Ваше имя: "), float(input("Ваш вес: ")), float(input("Ваш рост: ")), int(input("Ваш возраст: ")), input("Ваш пол: "), int(input("""Выберите из списка уровень вашей нагрузки:
 
 1 - Физическая нагрузка отсутствует или минимальная
 2 - Тренировки средней тяжести 3 раза в неделю
@@ -45,5 +52,5 @@ person = Human(input("Ваше имя: "), float(input("Ваш вес: ")), floa
 Ваша нагрузка: """)))
 
 person.print_info()
-
-person.BBO()
+person.card(18000)
+person.message()
